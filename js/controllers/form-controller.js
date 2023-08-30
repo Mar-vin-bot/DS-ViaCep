@@ -1,6 +1,7 @@
 /*tratar interações com usuario*/
 
 import Address from "../models/address.js";
+import * as requestService from "../services/request-service.js"
 
 function State(){
 
@@ -39,6 +40,13 @@ export function init(){
     state.inputNumber.addEventListener('change', handleinputNumberChange)
     state.btnClear.addEventListener('click', handleBtnClearClick)
    
+    state.btnSave.addEventListener('click', handleBtnSaveClick)
+}
+
+async function handleBtnSaveClick(event){
+    event.preventDefault();
+    const result = await requestService.getJson("https://viacep.com.br/ws/010a01000/json/");
+    console.log(result)
 }
 
 function handleinputNumberChange(event){
