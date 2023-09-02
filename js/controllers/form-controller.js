@@ -38,11 +38,16 @@ export function init(){
 
 
     state.inputNumber.addEventListener('change', handleinputNumberChange)
+    state.inputNumber.addEventListener('keyup', handleinputNumberKeyUp)
     state.btnClear.addEventListener('click', handleBtnClearClick)
    
     state.btnSave.addEventListener('click', handleBtnSaveClick)
 
     state.inputCep.addEventListener('change', handleInputCepChange)
+}
+
+function handleinputNumberKeyUp(event){
+    state.address.number = event.target.value
 }
 
 async function handleInputCepChange(event){
@@ -71,7 +76,7 @@ async function handleInputCepChange(event){
 
 async function handleBtnSaveClick(event){
     event.preventDefault();
-    console.log(event.target)
+    console.log(state.address)
 }
 
 function handleinputNumberChange(event){
