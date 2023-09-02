@@ -11,3 +11,18 @@ export async function findByCep(cep){
 
     return address
 } 
+
+export function getError(address){
+    const error = {}
+
+    if(!address.cep || address.cep == ""){
+        error.cep = "Campo requerido"
+    }
+
+
+    if(!address.number || address.number == ""){
+        error.number = "Campo number requerido"
+    }
+
+    return error
+}
